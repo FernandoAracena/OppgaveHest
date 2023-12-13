@@ -57,27 +57,32 @@ class Stall
     {
         if (horses.Any(horse => horse.IsRegisteredForRace))
         {
-            int rounds = 3; 
-            for (int i = 1; i <= rounds; i++)
+            int rounds = 3;
+            bool raceCompleted = false;
+            int i = 1;
+
+            while (!raceCompleted)
             {
-                Console.WriteLine($"Runde {i} av hesteløpet:");
+                Console.WriteLine();
 
                 foreach (var horse in horses)
                 {
                     horse.Løp();
-                }
 
-                Hest winner = horses[0];
-                foreach (var horse in horses)
-                {
-                    if (horse.Distance > winner.Distance)
+                    if (horse.Distance >= 300)
                     {
-                        winner = horse;
+                        raceCompleted = true;
+                        break;
                     }
                 }
 
-                Console.WriteLine($"Hesten {winner.Name} vant runde {i}!");
+                i++;
             }
+
+            Hest winner = horses.OrderBy(h => h.Distance).Last();
+            Console.WriteLine();
+            Console.WriteLine($"HESTEN {winner.Name} VANT HESTELØP!");
+            Console.WriteLine();
         }
         else
         {

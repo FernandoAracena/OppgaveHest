@@ -28,8 +28,23 @@
     {
         if (IsRegisteredForRace)
         {
-            Distance += Speed;
-            Console.WriteLine($"{Name} har nå løpt {Distance} km.");
+            Distance += Speed; // Adjust the distance based on the horse's speed
+            Console.WriteLine($"{Name} har nå løpt {Distance} mts.");
+
+            // Check if the horse has completed 1 lap (100 meters)
+            if (Distance >= 100 && Distance < 200)
+            {
+                Console.WriteLine($"{Name} HAR FULLFØRT 1 RUNDE!");
+            } else if (Distance >= 200 && Distance < 300)
+            {
+                Console.WriteLine($"{Name} HAR FULLFØRT 2 RUNDE!");
+            }
+
+            // Check if the horse has completed the race
+            if (Distance >= 300)
+            {
+                Console.WriteLine($"{Name} har fullført løpet!");
+            }
         }
         else
         {
