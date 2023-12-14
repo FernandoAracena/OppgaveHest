@@ -81,7 +81,7 @@ class Stall
 
             Hest winner = horses.OrderBy(h => h.Distance).Last();
             Console.WriteLine();
-            Console.WriteLine($"HESTEN {winner.Name} VANT HESTELØP!");
+            Console.WriteLine($"HESTEN {winner.Name} VANT HESTELØP!!!");
             Console.WriteLine();
         }
         else
